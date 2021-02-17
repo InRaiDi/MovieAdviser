@@ -44,6 +44,6 @@ window.onload = function() {
 
 function movieSelected(id) {
   sessionStorage.setItem("movieId", id);
-  location.replace("movies.html");
+  location.replace("movie-details");
   return false;
 }

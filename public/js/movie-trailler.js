@@ -20,9 +20,9 @@
       output += `
       
 			<br>
-			<div class="poster"><img src="http://image.tmdb.org/t/p/w300/${getMoviesA.poster_path}"></div>
-			<div class="info">
-      <ul>
+			<div class="poster grid-item"><img src="http://image.tmdb.org/t/p/w300/${getMoviesA.poster_path}"></div>
+			<div class="info grid-item">
+      <ul type="none">
 					<li><strong>Info:</strong>
           <li><strong>Movie name:</strong> <h1>"${getMoviesA.original_title}"<h1></li>
           <li><strong>Movie original language:</strong> ${getMoviesA.original_language}</li>
@@ -53,7 +53,7 @@ function getMovieTrailer() {
     let output2 = "";
      output2 = `
                 <div class="video-container">
-                <iframe width="100%" height="100%" src="https://www.youtube.com/embed/${getTrailer[trailerNumber].key}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                <iframe width="100%" height="700px " src="https://www.youtube.com/embed/${getTrailer[trailerNumber].key}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
                 </div>`;
     trailer.innerHTML = output2;
   }
