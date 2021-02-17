@@ -2,9 +2,9 @@
 
 ## Group:
 #### Rohan Juneja
-Dinara
-Vlad
-Geerthan
-Arielle
-Nikita
-DInesh
+#### Dinara
+#### Vlad
+#### Geerthan
+#### Arielle
+#### Nikita
+#### DInesh
