@@ -9,5 +9,8 @@ module.exports = function (app) {
     res.render('movie-details', {title:'Movie Details'});
    });
    
+   app.get('/registration', function(req,res){
+      res.render('registration', {title:'Registration'});
+     });
 
 };

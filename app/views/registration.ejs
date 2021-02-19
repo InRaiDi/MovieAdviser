@@ -1,0 +1,42 @@
+<%- include('partials/header.ejs'); %>
+<link rel="stylesheet" type="text/css" href="css/login_reg_style.css" />
+<div class="container_reg_login">
+    <div class="signup-content">
+        <div class="signup-form">
+            <center>  <h2 class="form-title">Registration</h2></center>
+            <form method="POST" class="register-form" id="register-form" action="/registration">
+                <div class="form-group">
+                    <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                    <input type="text" name="name" id="username" placeholder="User Name"/>
+                </div>
+                <div class="form-group">
+                    <label for="email"><i class="zmdi zmdi-email"></i></label>
+                    <input type="email" name="email" id="email" placeholder="Your Email"/>
+                </div>
+                <div class="form-group">
+                    <label for="pass"><i class="zmdi zmdi-lock"></i></label>
+                    <input type="password" name="pass" id="pass" placeholder="Password"/>
+                </div>
+                <div class="form-group">
+                    <label for="re-pass"><i class="zmdi zmdi-lock-outline"></i></label>
+                    <input type="password" name="re_pass" id="re_pass" placeholder="Repeat your password"/>
+                </div>
+                <div class="form-group">
+                    <input type="radio" id="standard" name="gender" value="standard"  class="account_type" >
+                    <label for="standard" class="label_account_type">Standard</label><br>
+                    <input type="radio" id="movie_buff" name="gender" value="movie_buff"  class="account_type">
+                    <label for="movie_buff" class="label_account_type">Movie Buff</label><br>
+                    <input type="radio" id="critic" name="gender" value="critic"  class="account_type" >
+                    <label for="critic" class="label_account_type">Critic</label>
+                </div>
+               <center><div class="form-group form-button">
+                    <input type="submit" name="signup" id="signup" class="form-submit" value="REGISTER"/>
+                </div></center> 
+            </form>
+        </div>
+        <div class="signup-image">
+            <figure><img src="img/register_img.jpg"></figure>
+        </div>
+    </div>
+</div>
+<%- include('partials/footer.ejs'); %>
