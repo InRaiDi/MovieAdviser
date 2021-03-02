@@ -1,7 +1,7 @@
 //this function handles routing of requests
 module.exports = function (app) {
    var index = require('../controllers/index.server.controller');
-
+   var user = require('../controllers/user.server.controller');
    app.get('/', function(req,res){
     res.render('homepage', {title:'Movies Website'});
    });
@@ -12,8 +12,13 @@ module.exports = function (app) {
    app.get('/registration', function(req,res){
       res.render('registration', {title:'Registration'});
      });
-     app.get('/login', function(req,res){
+
+   app.post('/registration', user.register);
+
+   app.get('/login', function(req,res){
       res.render('login', {title:'Log In'});
      });
+
+
 
 };
