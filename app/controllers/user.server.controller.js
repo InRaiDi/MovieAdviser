@@ -4,7 +4,7 @@ const User = require('mongoose').model('User');
 exports.register = function( req, res, next){
     const user = new User(req.body);
     console.log(user);
-    student.save((err) =>{
+    user.save((err) =>{
         if(err){
         return next(err);
     } 

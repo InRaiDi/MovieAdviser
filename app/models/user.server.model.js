@@ -4,8 +4,6 @@ const Schema = mongoose.Schema;
 
 // Define a new 'UserSchema'
 const UserSchema = new Schema({
-	firstName: String,
-	lastName: String,
 	email: {
 		type: String,
 		// Set an email index
@@ -30,16 +28,6 @@ const UserSchema = new Schema({
 			(password) => password.length >= 6,
 			'Password Should Be Longer'
 		]
-	},
-    role: {
-		type: String,
-		// Validate the 'role' value using enum list
-		enum: ['Admin', 'Owner', 'User']
-	},
-	created: {
-		type: Date,
-		// Create a default 'created' value
-		default: Date.now
 	}
 });
 
