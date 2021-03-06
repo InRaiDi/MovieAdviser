@@ -28,6 +28,9 @@ const UserSchema = new Schema({
 			(password) => password.length >= 6,
 			'Password Should Be Longer'
 		]
+	},
+	accountType: {
+		type: String
 	}
 });
 
