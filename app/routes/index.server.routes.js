@@ -1,5 +1,6 @@
 
 const index = require('../controllers/index.server.controller');
+const passport = require('passport');
 
 //this function handles routing of requests
 module.exports = function (app) {
@@ -19,6 +20,15 @@ module.exports = function (app) {
    app.get('/login', function(req,res){
       res.render('login', {title:'Log In'});
      });
+
+   
+   app.post('/login', (req,res,next)=>{
+      passport.authenticate('local',{
+         successRedirect : '/',
+         failureRedirect : '/login',
+         failureFlash : true,
+         })(req,res,next);
+   });
 
 
 

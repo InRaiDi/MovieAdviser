@@ -5,10 +5,15 @@ const bodyParser = require('body-parser');
 const methodOverride = require('method-override');
 const session = require('express-session');
 const config = require('./config.js');
+const passport = require('passport');
+const flash = require('connect-flash');
+
 
 module.exports = function(){
 
     const app = express();
+
+    require('./passport.js')(passport);
     
     if(process.env.NODE_ENV === 'development'){
         console.log("Running in development environment");
@@ -35,9 +40,22 @@ module.exports = function(){
         secret: config.sessionSecret
     }));
 
+    app.use(passport.initialize());
+    app.use(passport.session());
+
+    app.use(flash());
+    app.use((req,res,next)=> {
+        res.locals.success_msg = req.flash('success_msg');
+        res.locals.error_msg = req.flash('error_msg');
+        res.locals.error  = req.flash('error');
+    next();
+    })
+
     app.use(express.static('./public'));
 
     require('../app/routes/index.server.routes.js')(app);
+
+    
 
     return app;
 }
