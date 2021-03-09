@@ -34,7 +34,10 @@ module.exports = function (app) {
          failureFlash : true,
          })(req,res,next);
    });
-
+   app.get('/logout', function(req,res){
+      req.logout();
+      res.redirect('/');
+     })
    app.get('/list', movie.findall);
 
    app.get('/add', movie.movieadd)
