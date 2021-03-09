@@ -14,7 +14,7 @@ const MovieSchema = new Schema({
         type: String,
         required: true
     },
-    relaseDate:{
+    releaseDate:{
         type: String,
         required: true
     },
@@ -34,4 +34,4 @@ const MovieSchema = new Schema({
     }
 })
 
-mongoose.model('Movie', MovieSchema);
+module.exports = mongoose.model('Movie', MovieSchema);

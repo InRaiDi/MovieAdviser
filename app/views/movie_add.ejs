@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+        <link rel="stylesheet" href="/public/style.css">
+        <link rel="stylesheet" href="/public/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/public/css/bootstrap-grid.min.css">
+</head>
+<!--
+    temporary .ejs file to handle movie input from user 
+    adds to DB, however, it adds all twice? 
+    Not sure how to fix this 
+-->
+<body>
+        <div>
+                <a href="/">Home</a>
+        </div>
+        <script src="/public/js/bootstrap.bundle.min.js"></script>
+        <script src="/public/js/bootstrap.min.js"></script>
+        <br>
+        <form action="/add" method="POST" name="movieform" id="movieform">
+                <div>Id:
+                        <input type="text" name="id"required>
+                </div>
+                <div>Title:
+                        <input type="text" name="title"required>
+                </div>
+                <div>Overview:
+                        <input type="text" name="overview" size="30"required>
+                </div>
+                <div>Release Date:
+                    <input type="text" name="releaseDate" required>
+                </div>
+                <div>Vote Average:
+                        <input type="number" name="voteAverage" required>
+                </div>
+                <div>Vote Count:
+                    <input type="number" name="voteCount" required>
+                </div>
+                <div>Language:
+                    <input type="text" name="language">
+                </div>
+                <div>Poster Path:
+                    <input type="text" name="posterPath" >
+                </div>
+                <input type="submit" value="Add">
+        </form>
+</body>
+
+</html>
