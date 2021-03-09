@@ -19,8 +19,9 @@ exports.register = function( req, res, next){
         return next(err);
     } 
     else{
-        res.render('registration', {
-            title: 'Index',
+        res.render('login', {
+            title: 'Log In',
+            userLogged: req.user
         });
     }
     });

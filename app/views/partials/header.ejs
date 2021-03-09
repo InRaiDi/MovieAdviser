@@ -19,11 +19,16 @@
     <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm header">
         <h5 class="my-0 mr-md-auto font-weight-normal" ><a href="/">Movies Website</a></h5>
         <nav class="my-2 my-md-0 mr-md-3">
-          <a class="p-2 text-dark" href="/registration">Registration</a>
           <a class="p-2 text-dark" href="#">Top Movies</a>
           <a class="p-2 text-dark" href="#">Coming Soon</a>
           <a class="p-2 text-dark" href="#">Upcoming Movies</a>
         </nav>
-        <a class="btn btn-outline-primary" href="/login">Login</a>
+        <% if(userLogged) { %>
+            <a class="btn btn-outline-primary" href="/logout">Log Out</a>
+            <% } else  { %>
+                <a class="btn btn-outline-primary" href="/login">Login</a>
+                <a class="btn btn-outline-primary" href="/registration">Registration</a>
+          <% }  %>
+       
       </div>
   

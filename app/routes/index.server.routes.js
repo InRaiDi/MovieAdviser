@@ -13,17 +13,17 @@ module.exports = function (app) {
 
    app.get('/', index.render);
    app.get('/movie-details', function(req,res){
-    res.render('movie-details', {title:'Movie Details'});
+    res.render('movie-details', {title:'Movie Details', userLogged: req.user});
    });
    
    app.get('/registration', function(req,res){
-      res.render('registration', {title:'Registration'});
+      res.render('registration', {title:'Registration', userLogged: req.user});
      });
 
    app.post('/registration', user.register);
 
    app.get('/login', function(req,res){
-      res.render('login', {title:'Log In'});
+      res.render('login', {title:'Log In', userLogged: req.user});
      });
 
    
