@@ -18,17 +18,11 @@ exports.insert = function (req, res ) {
             res.json({ret});
         }
         else{
-        movies.save(function(err){
-        if(err){
-            ret.msg = err.message;
-            res.json({ret});
-        }else{
+        
         res.redirect("/list");
         }
       }); 
     }
-});    
-}
   
   
   exports.findall = function (req, res) {
