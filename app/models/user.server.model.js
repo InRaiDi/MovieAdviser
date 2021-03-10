@@ -19,7 +19,8 @@ const UserSchema = new Schema({
 		// Set a unique 'username' index
 		unique: true,
 		// Validate 'username' value existance
-		required: true
+		required: true,
+		max: 40
 	},
 	password: {
 		type: String,

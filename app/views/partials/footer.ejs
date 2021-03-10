@@ -22,8 +22,14 @@
         <ul class="list-unstyled text-small">
           <li><a class="text-muted" href="#">Search a Movie</a></li>
           <li><a class="text-muted" href="#">Rate a Movie</a></li>
-          <li><a class="text-muted" href="#">Login</a></li>
-          <li><a class="text-muted" href="#">Sign Up!</a></li>
+
+
+          <% if(userLogged) { %>
+            <li><a class="text-muted" href="/logout">Log Out</a></li>
+            <% } else  { %>
+              <li><a class="text-muted" href="/login">Login</a></li>
+              <li><a class="text-muted" href="/registration">Registration</a></li>
+          <% }  %>
         </ul>
       </div>
       <div class="col-6 col-md">
