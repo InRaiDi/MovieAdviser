@@ -9,6 +9,7 @@
   "author": "Rohan, Dinara, Vlad, Geerthan, Dinesh, Arielle, Nikita, Hai Truong",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.21.1",
     "bcrypt": "^5.0.1",
     "compression": "^1.7.4",
     "connect-flash": "^0.1.1",

@@ -13,8 +13,26 @@
         </section>
   <section id="sectionnowPlaying">
    
-       <div class="grid-container" id="nowPlaying">
-         
+    <div class="grid-container" id="nowPlaying">
+        <% data.movies.forEach(item=> { %>
+            <div id="card" class="grid-item" style="width: 24rem;">
+                <div id="card-img-top">
+                    <a onclick='movieSelected("<%=item.id %>")' href="#"><img class="poster-image" src="http://image.tmdb.org/t/p/w400/<%=item.posterPath %>"></a>
+                 </div>
+                <div class="card-body">
+                    <div class="card-title">
+                        <a onclick='movieSelected("<%=item.id %>")' href="#"><h2><%=item.title %></h2></a>
+                    </div>
+                    <p class="card-text"><span class="max-lines"><%=item.overview %></span>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item"><strong>Release Date:</strong> <%=item.releaseDate %></li>
+                   
+                    <li class="list-group-item"><strong>Rating:</strong>  <%=item.voteAverage %> / 10 <span id="smallText">(<%=item.voteCount %>  votes)</span></li>
+                </ul>
+                       
+            </div>
+        <% }) %>
        </div>
        
   </section>

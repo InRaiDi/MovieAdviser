@@ -1,6 +1,11 @@
+const Movies = require('../models/movies.server.model')
 
 const render = function(req, res){
-    res.render('homepage', {title:'Movies Website', userLogged: req.user});
+    Movies.find({}, function (err, retobj) {
+        let ret = {};
+        ret.movies = retobj;
+    res.render('homepage', {title:'Movies Website', userLogged: req.user, data:ret});
+    });
 }
 
 const displayInfo = function (req, res) {

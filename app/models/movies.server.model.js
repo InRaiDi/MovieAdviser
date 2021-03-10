@@ -4,11 +4,13 @@ const Schema = mongoose.Schema;
 const MovieSchema = new Schema({
     id:{
         type: Number,
-        required: true
+        required: true, 
+        unique: true
     },
     title:{
         type: String,
-        required: true
+        required: true,
+        unique: true
     },
     overview:{
         type: String,

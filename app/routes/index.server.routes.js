@@ -38,11 +38,18 @@ module.exports = function (app) {
       req.logout();
       res.redirect('/');
      })
+
+   // displaying db in a list
    app.get('/list', movie.findall);
 
+   // adding to db from Form
    app.get('/add', movie.movieadd)
       .post(urlencodedparser, movie.insert);
 
+   // update db from /list page
    app.post('/update/:objid', urlencodedparser, movie.updt);
+
+   //to import data from API and save to DB
+   app.get('/import_data',movie.importData)
 
 };
