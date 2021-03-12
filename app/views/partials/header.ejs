@@ -1,35 +1,86 @@
-<!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-    <meta charset="utf-8" />
-    <title>
-        <%= title %>
-    </title>
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;300&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="css/style.css" />
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title><%= title %></title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;300&display=swap" rel="stylesheet">
+      <link rel="stylesheet" href="css/bootstrap.min.css">
+      <link rel="stylesheet" href="css/font-awesome.min.css">
+      <link rel="stylesheet" type="text/css" href="css/style.css" />
+  <!-- Favicons -->
+  <link href="/img/favicon.png" rel="icon">
+  <link href="/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/vendor/icofont/icofont.min.css" rel="stylesheet">
+  <link href="/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="/vendor/animate.css/animate.min.css" rel="stylesheet">
+  <link href="/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="/vendor/venobox/venobox.css" rel="stylesheet">
+  <link href="/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="/css/custom-style.css" rel="stylesheet">
+
+  
 </head>
 
 <body>
 
-    <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm header">
-        <h5 class="my-0 mr-md-auto font-weight-normal" ><a href="/">Movies Website</a></h5>
-        <nav class="my-2 my-md-0 mr-md-3">
-          <a class="p-2 text-dark" href="#">Top Movies</a>
-          <a class="p-2 text-dark" href="#">Coming Soon</a>
-          <a class="p-2 text-dark" href="#">Upcoming Movies</a>
-        </nav>
-        <% if(userLogged) { %>
-            <b> Hello, <%= userLogged.username %></b>
-            <a class="btn btn-outline-primary" href="/logout">Log Out</a>
-            <% } else  { %>
-                <a class="btn btn-outline-primary" href="/login">Login</a>
-                <a class="btn btn-outline-primary" href="/registration">Registration</a>
-          <% }  %>
-       
-      </div>
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top ">
+    <div class="container d-flex align-items-center">
+
+      <h1 class="logo"><a href="/">Movie Advisor</a></h1>
+      <!-- Uncomment below if you prefer to use an image logo -->
+      <!-- <a href="index.html" class="logo"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+
+      <nav class="nav-menu d-none d-lg-block">
+
+        <ul>
+          <li class="active"><a href="/">Home</a></li>
+
+          <li class="drop-down"><a href="#">Movies</a>
+            <ul>
+                <li><a href="#">Top Movies</a></li>
+                <li><a href="#">Coming Soon Movies</a></li>
+                <li><a href="#">Latest Movies</a></li>
+                <li><a href="#">Country-Based Movies</a></li>
+
+              
+            </ul>
+          </li>
+
+          <li><a href="/our-team">Team</a></li>
+          <li><a href="/contact-us">Contact Us</a></li>
+          <li><a href="/registration">Register</a></li>
+         
+
+        </ul>
+
+      </nav><!-- .nav-menu -->
+      <% if(userLogged) { %>
+        <b> Hello, <%= userLogged.username %></b>
+        <a class="get-started-btn ml-auto" href="/logout">Log Out</a>
+        <% } else  { %>
+            <a class="get-started-btn ml-auto" href="/login">Login</a>
+          
+      <% }  %>
+      
+
+    </div>
+  </header><!-- End Header -->
+
   
+

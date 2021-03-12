@@ -1,44 +1,53 @@
 <%- include('partials/header.ejs'); %>
+<%- include('partials/slider.ejs'); %>
+<%- include('partials/search.ejs'); %>
  
 <iframe src="/import_data" style="position: absolute;width:0;height:0;border:0;"></iframe>
 
-<div id="container-sm border">
-    <main>
-        <section class="grid" id="websiteInfo">
-            <div class="contentWrap">
-                <h2 class="contentTitle text-center">Now playing movies details and Trailers</h2>
-                <p class="text-center">
-                    My website displays all the latest information and trailers regarding now playing movies available in cinemas. It fetches all the data from theMovieDB website.
-                </p>
+    <section id="latest-movies" class="portfolio">
+        <div class="container">
+  
+          <div class="section-title">
+            <h2>Movies</h2>
+            <p>Latest Movies</p>
+          </div>
+  
+          <div class="row">
+            <div class="col-lg-12 d-flex justify-content-center">
+              <ul id="portfolio-flters">
+                <li data-filter="*" class="filter-active">Latest</li>
+                <li data-filter=".filter-upcoming">Upcoming</li>
+               
+              </ul>
             </div>
-        </section>
-  <section id="sectionnowPlaying">
-   
-    <div class="grid-container" id="nowPlaying">
-        <% data.movies.forEach(item=> { %>
-            <div id="card" class="grid-item" style="width: 24rem;">
-                <div id="card-img-top">
-                    <a onclick='movieSelected("<%=item.id %>")' href="#"><img class="poster-image" src="http://image.tmdb.org/t/p/w400/<%=item.posterPath %>"></a>
-                 </div>
-                <div class="card-body">
-                    <div class="card-title">
-                        <a onclick='movieSelected("<%=item.id %>")' href="#"><h2><%=item.title %></h2></a>
-                    </div>
-                    <p class="card-text"><span class="max-lines"><%=item.overview %></span>
+          </div>
+  
+          <div class="row portfolio-container">
+            <% data.movies.forEach(item=> { %>
+            <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+              <div class="portfolio-wrap">
+                <img src="http://image.tmdb.org/t/p/w400/<%=item.posterPath %>" class="img-fluid" alt="">
+                <div class="portfolio-info">
+                  <h4><%=item.title %></h4>
+                  <p class="max-lines"><%=item.overview %></p>
+                  <div class="portfolio-links">
+                    <a href="http://image.tmdb.org/t/p/w400/<%=item.posterPath %>" data-gall="portfolioGallery" class="venobox" title="App 1"><i class="bx bx-plus"></i></a>
+                    <a onclick='movieSelected("<%=item.id %>")' href="#" data-gall="portfolioDetailsGallery" data-vbtype="iframe" class="venobox" title="Portfolio Details"><i class="bx bx-link"></i></a>
+                  </div>
                 </div>
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item"><strong>Release Date:</strong> <%=item.releaseDate %></li>
-                   
-                    <li class="list-group-item"><strong>Rating:</strong>  <%=item.voteAverage %> / 10 <span id="smallText">(<%=item.voteCount %>  votes)</span></li>
-                </ul>
-                       
+              </div>
             </div>
-        <% }) %>
-       </div>
-       
-  </section>
-</main>
-    
-</div>
+            <% }) %>
+            
+           
+  
+        
+  
+          </div>
+  
+        </div>
+      </section><!-- End Portfolio Section -->
+
+      
 <script src="js/movie.js"></script>
 <%- include('partials/footer.ejs'); %>
