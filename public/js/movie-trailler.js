@@ -7,6 +7,7 @@
   xhr2.send();
   xhr2.addEventListener("load", getMovieInfo);
   const trailer = document.querySelector("#trailer");
+  const movieTitle = document.getElementById("movieTitle");
   const xhr3= new XMLHttpRequest();
   const movieTrailer = `https://api.themoviedb.org/3/movie/${movieId}/videos?api_key=6a879a78d6083b8f3ba308233e0de85b&language=en-US` ;
   xhr3.open("GET", movieTrailer);
@@ -17,10 +18,11 @@
       const response2 = JSON.parse(xhr2.responseText);
       let getMoviesA = response2;
       let output = "";
+      movieTitle.innerHTML = `${getMoviesA.original_title}`;
       output += `
       
 			<br>
-			<div class="poster grid-item"><img src="http://image.tmdb.org/t/p/w300/${getMoviesA.poster_path}"></div>
+			<div class="entry-img"><img src="http://image.tmdb.org/t/p/w300/${getMoviesA.poster_path}"></div>
 			<div class="info grid-item">
       <ul type="none">
 					<li><strong>Info:</strong>

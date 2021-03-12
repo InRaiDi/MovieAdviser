@@ -1,7 +1,34 @@
 
 		<%- include('partials/header.ejs'); %>
-        <div class = "grid" id="movieDetails"></div>
-		<h2 id="trailer_title">Trailer</h2>
-		<div id="trailer"></div>
-        <script src="js/movie-trailler.js"></script>
+<!-- ======= Breadcrumbs ======= -->
+<section id="breadcrumbs" class="breadcrumbs">
+    <div class="container">
+
+      <div class="d-flex justify-content-between align-items-center">
+        <h2 id="movieTitle"></h2>
+        <ol>
+          <li><a href="/">Home</a></li>
+          <li>Movie-Details</li>
+        </ol>
+      </div>
+
+    </div>
+  </section><!-- End Breadcrumbs -->
+
+<section>
+    <div class="container">
+
+      <div class="row">
+
+        <div class="col-lg-8 entries">
+            <div class = "grid" id="movieDetails"></div>
+            <h2 id="trailer_title">Trailer</h2>
+            <div id="trailer"></div>
+            <script src="js/movie-trailler.js"></script>
+
+</div></div></div></section>
+
+       
+
+
         <%- include('partials/footer.ejs'); %>
