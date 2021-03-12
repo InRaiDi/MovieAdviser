@@ -12,6 +12,9 @@ module.exports = function (app) {
    var movie = require('../controllers/movies.server.controller');
 
    app.get('/', index.render);
+   app.get('/contact-us', index.contactUsPage);
+   app.get('/privacy-policy', index.privacyPolicy);
+   app.get('/our-team', index.ourTeamPage);
    app.get('/movie-details', function(req,res){
     res.render('movie-details', {title:'Movie Details', userLogged: req.user});
    });

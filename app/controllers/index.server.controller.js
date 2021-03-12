@@ -17,4 +17,15 @@ const displayInfo = function (req, res) {
     
 }; 
 
-module.exports = {"render": render, "displayInfo": displayInfo}
+const contactUsPage = function(req, res){
+    res.render('contact-us', {title:'Movies Website', userLogged: req.user});
+}
+
+const ourTeamPage = function(req, res){
+    res.render('our-team', {title:'Movies Website', userLogged: req.user});
+}
+const privacyPolicy = function(req, res){
+    res.render('privacy-policy', {title:'Movies Website', userLogged: req.user});
+}
+
+module.exports = {"render": render, "displayInfo": displayInfo, "contactUsPage": contactUsPage, "ourTeamPage":ourTeamPage, "privacyPolicy":privacyPolicy }
