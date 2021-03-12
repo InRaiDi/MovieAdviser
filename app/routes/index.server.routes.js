@@ -10,11 +10,14 @@ module.exports = function (app) {
    var index = require('../controllers/index.server.controller');
    var user = require('../controllers/user.server.controller');
    var movie = require('../controllers/movies.server.controller');
+   var search = require('../controllers/search.server.controller');
 
    app.get('/', index.render);
    app.get('/contact-us', index.contactUsPage);
    app.get('/privacy-policy', index.privacyPolicy);
    app.get('/our-team', index.ourTeamPage);
+   app.get('/advance-search', search.searchPage);
+
    app.get('/movie-details', function(req,res){
     res.render('movie-details', {title:'Movie Details', userLogged: req.user});
    });
