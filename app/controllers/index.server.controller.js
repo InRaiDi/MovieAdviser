@@ -34,4 +34,13 @@ const upcomingMovies = function(req, res){
     res.render('upcoming', {title:'Upcoming Movies', userLogged: req.user, data:ret});
     });
 }
-module.exports = {"upcomingMovies":upcomingMovies,"render": render, "displayInfo": displayInfo, "contactUsPage": contactUsPage, "ourTeamPage":ourTeamPage, "privacyPolicy":privacyPolicy }
+const toprateMovies = function(req,res){
+    Movies.find({}, function (err, retobj){
+        let ret ={};
+        ret.movies = retobj;
+    res.render('toprate', {title:'Top Rate Movies', userLogged: req.user, data:ret});
+    });
+}
+module.exports = {"upcomingMovies":upcomingMovies,"render": render,
+                    "displayInfo": displayInfo, "contactUsPage": contactUsPage,
+                     "ourTeamPage":ourTeamPage, "privacyPolicy":privacyPolicy, "toprateMovies": toprateMovies }
