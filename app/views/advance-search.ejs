@@ -101,7 +101,7 @@
               <p class="max-lines"><%=item.overview %></p>
               <div class="portfolio-links">
                 <a href="http://image.tmdb.org/t/p/w400/<%=item.posterPath %>" data-gall="portfolioGallery" class="venobox" title="App 1"><i class="bx bx-plus"></i></a>
-                <a onclick='movieSelected("<%=item.id %>")' href="#" data-gall="portfolioDetailsGallery" data-vbtype="iframe" class="venobox" title="Portfolio Details"><i class="bx bx-link"></i></a>
+                <a onclick='movieSelected("<%=item.id %>")' href="#" data-gall="portfolioDetailsGallery" data-vbtype="iframe" title="Portfolio Details"><i class="bx bx-link"></i></a>
               </div>
             </div>
           </div>
@@ -116,4 +116,6 @@
     </div>
       </section>
 </div>
+
+<script src="js/movie.js"></script>
 <%- include('partials/footer.ejs'); %>
