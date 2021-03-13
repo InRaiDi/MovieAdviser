@@ -33,6 +33,9 @@ const MovieSchema = new Schema({
     },
     posterPath:{
         type: String
+    },
+    movieType:{
+        type:String
     }
 })
 

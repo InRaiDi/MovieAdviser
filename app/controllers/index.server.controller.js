@@ -18,14 +18,20 @@ const displayInfo = function (req, res) {
 }; 
 
 const contactUsPage = function(req, res){
-    res.render('contact-us', {title:'Movies Website', userLogged: req.user});
+    res.render('contact-us', {title:'Contact Us', userLogged: req.user});
 }
 
 const ourTeamPage = function(req, res){
-    res.render('our-team', {title:'Movies Website', userLogged: req.user});
+    res.render('our-team', {title:'Our Team Page', userLogged: req.user});
 }
 const privacyPolicy = function(req, res){
-    res.render('privacy-policy', {title:'Movies Website', userLogged: req.user});
+    res.render('privacy-policy', {title:'Privacy Policy', userLogged: req.user});
 }
-
-module.exports = {"render": render, "displayInfo": displayInfo, "contactUsPage": contactUsPage, "ourTeamPage":ourTeamPage, "privacyPolicy":privacyPolicy }
+const upcomingMovies = function(req, res){
+    Movies.find({}, function (err, retobj) {
+        let ret = {};
+        ret.movies = retobj;
+    res.render('upcoming', {title:'Upcoming Movies', userLogged: req.user, data:ret});
+    });
+}
+module.exports = {"upcomingMovies":upcomingMovies,"render": render, "displayInfo": displayInfo, "contactUsPage": contactUsPage, "ourTeamPage":ourTeamPage, "privacyPolicy":privacyPolicy }

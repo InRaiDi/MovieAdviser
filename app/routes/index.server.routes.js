@@ -17,6 +17,7 @@ module.exports = function (app) {
    app.get('/privacy-policy', index.privacyPolicy);
    app.get('/our-team', index.ourTeamPage);
    app.get('/advance-search', search.searchPage);
+   app.get('/upcoming-movies', index.upcomingMovies);
 
    app.get('/movie-details', function(req,res){
     res.render('movie-details', {title:'Movie Details', userLogged: req.user});
