@@ -15,8 +15,9 @@
           <div class="row">
             <div class="col-lg-12 d-flex justify-content-center">
               <ul id="portfolio-flters">
-                <li data-filter="*" class="filter-active">Latest</li>
-                <li data-filter=".filter-upcoming">Upcoming</li>
+                <li data-filter="*" class="filter-active filter-app">Latest</li>
+                <li data-filter=".filter-card">Upcoming</li>
+                <li data-filter=".filter-web">Top Rated</li>
                
               </ul>
             </div>
@@ -24,7 +25,7 @@
   
           <div class="row portfolio-container">
            
-            <% data.movies.forEach(item=> { %>
+            <% console.log("It works!"); data.movies.forEach(item=> { %>
               <% if(item.movieType =="latest"){%>
             <div class="col-lg-4 col-md-6 portfolio-item filter-app">
               <div class="portfolio-wrap">
@@ -40,13 +41,46 @@
               </div>
             </div>
             <% }}) %>
-            
-           
-  
-        
-  
           </div>
   
+          <div class="row portfolio-container">
+          <% console.log("It works!"); data.movies.forEach(item=> { %>
+            <% if(item.movieType =="upcoming"){%>
+          <div class="col-lg-4 col-md-6 portfolio-item filter-card">
+            <div class="portfolio-wrap">
+              <img src="http://image.tmdb.org/t/p/w400/<%=item.posterPath %>" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4><%=item.title %></h4>
+                <p class="max-lines"><%=item.overview %></p>
+                <div class="portfolio-links">
+                  <a href="http://image.tmdb.org/t/p/w400/<%=item.posterPath %>" data-gall="portfolioGallery" class="venobox" title="App 1"><i class="bx bx-plus"></i></a>
+                  <a onclick='movieSelected("<%=item.id %>")' href="#" data-gall="portfolioDetailsGallery" data-vbtype="iframe" class="venobox" title="Portfolio Details"><i class="bx bx-link"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <% }}) %>
+        </div>
+
+        <div class="row portfolio-container">
+          <% console.log("It works!"); data.movies.forEach(item=> { %>
+            <% if(item.movieType =="topRate"){%>
+          <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+            <div class="portfolio-wrap">
+              <img src="http://image.tmdb.org/t/p/w400/<%=item.posterPath %>" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4><%=item.title %></h4>
+                <p class="max-lines"><%=item.overview %></p>
+                <div class="portfolio-links">
+                  <a href="http://image.tmdb.org/t/p/w400/<%=item.posterPath %>" data-gall="portfolioGallery" class="venobox" title="App 1"><i class="bx bx-plus"></i></a>
+                  <a onclick='movieSelected("<%=item.id %>")' href="#" data-gall="portfolioDetailsGallery" data-vbtype="iframe" class="venobox" title="Portfolio Details"><i class="bx bx-link"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <% }}) %>
+        </div>
+        </div>
         </div>
       </section><!-- End Portfolio Section -->
 
