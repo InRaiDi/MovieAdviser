@@ -24,6 +24,8 @@ const UserSchema = new Schema({
 	},
 	password: {
 		type: String,
+		required: true,
+		min: 6,
 		// Validate the 'password' value length
 		validate: [
 			(password) => password.length >= 6,

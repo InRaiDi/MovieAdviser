@@ -4,7 +4,6 @@ const bcrypt = require('bcrypt');
 //adding new user to DB
 exports.register = function( req, res, next){
     const user = new User(req.body);
-    
     bcrypt.genSalt(10,(err,salt)=> 
             bcrypt.hash(user.password,salt,
                 (err,hash)=> {
