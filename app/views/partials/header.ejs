@@ -68,7 +68,7 @@
         </ul>
       </nav><!-- .nav-menu -->
       <% if(userLogged) { %>
-        <b> Hello, <%= userLogged.username %></b>
+        <a class="header_name">Hello, <%= userLogged.username %></a>
         <a class="get-started-btn ml-auto" href="/logout">Log Out</a>
         <% } else  { %>
             <a class="get-started-btn ml-auto" href="/login">Login</a>
