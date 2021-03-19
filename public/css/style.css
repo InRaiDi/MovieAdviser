@@ -52,8 +52,10 @@ margin: 0px 5px;
 .grid-item {
 
   padding: 20px;
- 
+ width:50%;
   text-align: center;
+  display: inline-block;
+  vertical-align: top;
 }
 
 .max-lines {

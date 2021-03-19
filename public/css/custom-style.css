@@ -1276,7 +1276,7 @@ body {
   }
   
   /*--------------------------------------------------------------
-  # Blog
+  # Blog UPDATED by Dinara for movie details
   --------------------------------------------------------------*/
   .blog {
     padding: 40px 0 40px 0;
@@ -1289,20 +1289,123 @@ body {
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
   }
   
-  .blog .entry .entry-img {
-    max-height: 400px;
+  .entry-img {
+    max-height: 550px;
     margin: -20px -20px 20px -20px;
     overflow: hidden;
+    width: 50% !important;
+    display: inline-block; 
   }
-  
-  .blog .entry .entry-title {
-    font-size: 20px;
+  .entry-img img{
+    border-radius: 10px;
+  }
+
+.entry-title {
+    font-size: 25px;
     line-height: 26px;
     font-weight: bold;
     padding: 0;
     margin: 0 0 20px 0;
   }
+  .entry-title h2{
+    color: #c0392b;
+  }
+  .grid-item li{
+    font-size: 16px;
+  }
+  .desc_info_block{
+    text-align: left;
+  }
+  /*--------------------------------------------------------------
+  # RATING STARTS added by Dinara for movie details
+  --------------------------------------------------------------*/
+.rate_button{
+  display: inline-block;
+  background: #c0392b;
+  color: #fff;
+  border-bottom: none;
+  width: auto;
+  font-size: 15px;
+  padding: 0px 20px;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -o-border-radius: 5px;
+  -ms-border-radius: 5px;
+  margin-left: 70px;
+  cursor: pointer; 
+}
+  .rating {
+    display: inline-block;
+    position: relative;
+    height: 30px;
+    line-height: 30px;
+    font-size: 30px;
+    width:300px;
+    vertical-align: top;
+    margin-top: 20px;
+  }
   
+  .rating label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    cursor: pointer;
+  }
+  
+  .rating label:last-child {
+    position: static;
+  }
+  
+  .rating label:nth-child(1) {
+    z-index: 5;
+  }
+  
+  .rating label:nth-child(2) {
+    z-index: 4;
+  }
+  
+  .rating label:nth-child(3) {
+    z-index: 3;
+  }
+  
+  .rating label:nth-child(4) {
+    z-index: 2;
+  }
+  
+  .rating label:nth-child(5) {
+    z-index: 1;
+  }
+  
+  .rating label input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+  }
+  
+  .rating label .icon {
+    float: left;
+    color: transparent;
+  }
+  
+  .rating label:last-child .icon {
+    color: #000;
+  }
+  
+  .rating:not(:hover) label input:checked ~ .icon,
+  .rating:hover label:hover input ~ .icon {
+    color: #c0392b;
+  }
+  
+  .rating label input:focus:not(:checked) ~ .icon:last-child {
+    color: #000;
+    text-shadow: 0 0 5px #09f;
+  }
+    /*--------------------------------------------------------------
+  # RATING ENDS added by Dinara for movie details
+  --------------------------------------------------------------*/
   .blog .entry .entry-title a {
     color: #556270;
     transition: 0.3s;

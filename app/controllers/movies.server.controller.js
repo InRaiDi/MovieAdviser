@@ -199,5 +199,9 @@ exports.updt = function (req, res) {
     }
   }
 
-  
+  exports.rateMovie = function (req, res ) {
+    ///BLABLABLA
+    //note from Dinara: I'm sending radio button values of 1,2,3,4,5 from the field "stars" via POST
+    ////
+  }
   

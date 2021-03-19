@@ -60,4 +60,7 @@ module.exports = function (app) {
    //to import data from API and save to DB
    app.get('/import_data',movie.importData)
 
+   //for rating a movie
+   app.post('/rate_movie',movie.rateMovie)
+
 };

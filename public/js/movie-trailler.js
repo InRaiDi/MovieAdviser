@@ -21,18 +21,56 @@
       movieTitle.innerHTML = `${getMoviesA.original_title}`;
       output += `
       
-			<br>
-			<div class="entry-img"><img src="http://image.tmdb.org/t/p/w300/${getMoviesA.poster_path}"></div>
+	
+			<div class="entry-img text-center"><img src="http://image.tmdb.org/t/p/w300/${getMoviesA.poster_path}"></div>
 			<div class="info grid-item">
       <ul type="none">
-					<li><strong>Info:</strong>
-          <li><strong>Movie name:</strong> <h1>"${getMoviesA.original_title}"<h1></li>
+          <div class="entry-title">Movie name: <h2>"${getMoviesA.original_title}"<h2></div>
+          <hr>
+      <div class="desc_info_block">
           <li><strong>Movie original language:</strong> ${getMoviesA.original_language}</li>
 
           <li><strong>Movie description:</strong> ${getMoviesA.overview}</li>
         <li><strong>Release Date:</strong> ${getMoviesA.release_date}</li>
 					<li><strong>Runtime:</strong> ${getMoviesA.runtime} (min)</li>
 					<li><strong>Rating:</strong> ${getMoviesA.vote_average} / 10 <span id="smallText">(${getMoviesA.vote_count} votes)</span></li>
+          
+          <form class="rating text-center" action="/rate_movie" method="POST">
+          <label>
+            <input type="radio" name="stars" value="1" />
+            <span class="icon">★</span>
+          </label>
+          <label>
+            <input type="radio" name="stars" value="2" />
+            <span class="icon">★</span>
+            <span class="icon">★</span>
+          </label>
+          <label>
+            <input type="radio" name="stars" value="3" />
+            <span class="icon">★</span>
+            <span class="icon">★</span>
+            <span class="icon">★</span>   
+          </label>
+          <label>
+            <input type="radio" name="stars" value="4" />
+            <span class="icon">★</span>
+            <span class="icon">★</span>
+            <span class="icon">★</span>
+            <span class="icon">★</span>
+          </label>
+          <label>
+            <input type="radio" name="stars" value="5" checked/>
+            <span class="icon">★</span>
+            <span class="icon">★</span>
+            <span class="icon">★</span>
+            <span class="icon">★</span>
+            <span class="icon">★</span>
+          </label>
+          &emsp;
+          <input type="submit" name="rating" id="rating" class="rate_button" value="Rate"/>
+        </form>
+
+     </div>
           </ul>
           </div>
                    `;
@@ -55,7 +93,7 @@ function getMovieTrailer() {
     let output2 = "";
      output2 = `
                 <div class="video-container">
-                <iframe width="100%" height="700px " src="https://www.youtube.com/embed/${getTrailer[trailerNumber].key}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                <iframe width="100%" height="500px " src="https://www.youtube.com/embed/${getTrailer[trailerNumber].key}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
                 </div>`;
     trailer.innerHTML = output2;
   }
