@@ -50,11 +50,13 @@ module.exports = function(){
         res.locals.error  = req.flash('error');
     next();
     })
-
+    
     app.use(express.static('./public'));
 
     require('../app/routes/index.server.routes.js')(app);
-
+    app.use(function(req,res,next){
+        res.status(404).render('404', {title:'not found', userLogged: req.user});
+     });
 
     return app;
 }
