@@ -47,12 +47,7 @@ module.exports = function (app) {
       res.redirect('/');
      })
 
-   // displaying db in a list
-   app.get('/list', movie.findall);
 
-   // adding to db from Form
-   app.get('/add', movie.movieadd)
-      .post(urlencodedparser, movie.insert);
 
    // update db from /list page
    app.post('/update/:objid', urlencodedparser, movie.updt);

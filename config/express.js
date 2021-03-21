@@ -54,8 +54,10 @@ module.exports = function(){
     app.use(express.static('./public'));
 
     require('../app/routes/index.server.routes.js')(app);
+    require('../app/routes/admin.server.routes.js')(app);
     app.use(function(req,res,next){
         res.status(404).render('404', {title:'not found', userLogged: req.user});
+        res.end('Cannot ' + req.method + ' ' + req.url);
      });
 
     return app;
