@@ -1,18 +1,6 @@
-
-<html>
-
-<head>
-        <link rel="stylesheet" href="/css/style.css">
-        <link rel="stylesheet" href="/css/bootstrap.min.css">
-        <link rel="stylesheet" href="/css/bootstrap-grid.min.css">
-</head>
-
-<body>
-        <div>
-                <a href="/">Home</a>
-        </div>
-        <h1> Movies </h1>
-      
+<%- include('partials/side-navigation.ejs'); %>
+<div id="body" class="active">
+    <%- include('partials/top-navigation.ejs'); %>
         <table align="center" >
                   <tr>
                         <th>Id</th>
@@ -24,12 +12,12 @@
                         <th>Language</th>
                         <th>Poster Path</th>
                 </tr>
-                <% data.movies.forEach(item=> { %>
+                <% data.movies.forEach(item=>{ %>
                         <tr>
                                 <form action="/update/<%= item._id %>" method="POST" name="movieform" id="movieform">
 
                                         <td>
-                                                <input type="text" name="id" value="<%=item.id %>" size="5">
+                                                <label type="text" name="id" value="<%=item.id %>" size="5"><%=item.id %></label>
                                         </td>
                                         <td>
                                                 <input type="text" name="title" value="<%=item.title %>" size="20">
@@ -58,8 +46,7 @@
                                 </form>
                         </tr>
                         </tr>
-                        <% }) %>
+                        <% } )%>
         </table>
-</body>
-
-</html>
+</div>
+<%- include('partials/footer.ejs'); %>

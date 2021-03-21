@@ -1,0 +1,69 @@
+<%- include('partials/side-navigation.ejs'); %>
+<div id="body" class="active">
+        <%- include('partials/top-navigation.ejs'); %>
+        <div class="content">
+                <div class="container">
+                    <div class="page-title">
+                        <h3>Add a Movie Form</h3>
+                    </div>
+       
+        <div class="col-lg-12">
+                <div class="card-header">Fill in the movie Details and hit Submit!</div>
+                <div class="card-body">
+                    <h5 class="card-title"></h5>
+                    <form  class="form-horizontal" action="/add" method="POST" name="movieform" id="movieform">
+                                        <div class="form-group row" >
+                                                <label class="col-sm-2">Id:</label>
+                                                <div  class="col-sm-10">
+                                                         <input class="form-control" type="text" name="id" required>
+                                                </div>
+                                        </div>
+                                        <div class="line"></div><br>
+                                        <div class="form-group row" >
+                                                <label class="col-sm-2">Title:</label>
+                                                <div  class="col-sm-10">
+                                                        <input  type="text" class="form-control" name="title"required>
+                                                </div>
+                                        </div>
+                                        <div class="line"></div><br>
+                                        <div class="form-group row" >
+                                                <label class="col-sm-2">Overview:</label>
+                                                <div  class="col-sm-10">
+                                                <input  type="text" class="form-control" name="overview" size="30"required>
+                                        </div>   </div>
+                                        <div class="form-group row" >
+                                      
+                                                <label class="col-sm-2">Release Date:</label>
+                                                <div  class="col-sm-10">
+                                            <input  type="text" class="form-control" name="releaseDate" required>
+                                        </div>   </div>
+                                        <div class="form-group row" >
+                                                <label class="col-sm-2">Vote Average:</label>
+                                                <div  class="col-sm-10">
+                                                <input  type="number" class="form-control" name="voteAverage" required>
+                                        </div>   </div>
+                                        <div class="form-group row" >
+                                                <label class="col-sm-2">Vote Count:</label>
+                                                <div  class="col-sm-10">
+                                            <input type="number" class="form-control" name="voteCount" required>
+                                        </div>   </div>
+                                        <div class="form-group row" >
+                                                <label class="col-sm-2">Language:</label>
+                                                <div  class="col-sm-10">
+                                            <input type="text" class="form-control" name="language">
+                                        </div>   </div>
+                                        <div class="form-group row" >
+                                                <label class="col-sm-2">Poster Path:</label>
+                                                <div  class="col-sm-10">
+                                            <input type="text"  class="form-control" name="posterPath" >
+                                        </div>   </div>
+                                        <input type="submit" class="btn btn-danger" value="Add">
+                                </form>
+                                </div>
+                                </form>
+                                </div>
+                                
+      
+        </div></div></div>
+</div>
+<%- include('partials/footer.ejs'); %>

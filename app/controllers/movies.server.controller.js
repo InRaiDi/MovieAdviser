@@ -11,7 +11,7 @@ const TopRateMovies = require('mongoose').model('Movie');
 
 exports.movieadd = function (req, res) {
     const ret = {};
-    res.render("movie_add", { data: ret });
+    res.render("admin-panel/movie_add", { title:'Add a Movie', data: ret });
   }
 
   //to insert to data and display 
@@ -29,7 +29,7 @@ exports.insert = function (req, res ) {
         }
         else{
         
-        res.redirect("/list");
+        res.redirect("/admin/list");
         }
       }); 
 
@@ -41,7 +41,7 @@ exports.insert = function (req, res ) {
         }
         else{
         
-        res.redirect("/list");
+        res.redirect("/admin/list");
         }
       }); 
 
@@ -52,7 +52,7 @@ exports.insert = function (req, res ) {
             res.json({ret});
         }
         else{
-        res.redirect("/list");
+        res.redirect("/admin/list");
         }
       }); 
     }
@@ -63,13 +63,13 @@ exports.insert = function (req, res ) {
       let ret = {};
       ret.movies = retobj;
      
-      res.render("movie_list", { data: ret });
+      res.render("admin-panel/movie_list", {title:'Movie List', data: ret });
     });
     upcomingMovie.find({}, function (err, retobj) {
       let ret = {};
 
       ret.upcomingMovies = retobj;
-      res.render("movie_list", { data: ret });
+      res.render("admin-panel/movie_list", {title:'Movie List', data: ret });
     });
   }
   
@@ -87,7 +87,7 @@ exports.updt = function (req, res) {
                 res.json({ ret });
               }
               else{
-                res.redirect("/list");
+                res.redirect("/admin/list");
               }
           });
       }

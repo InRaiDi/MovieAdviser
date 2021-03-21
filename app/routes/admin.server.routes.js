@@ -12,10 +12,10 @@ module.exports = function (app) {
     app.get('/admin', adminIndex.adminPage);
 
        // displaying db in a list
-   app.get('/list', movie.findall);
+   app.get('/admin/list', movie.findall);
 
    // adding to db from Form
-   app.get('/add', movie.movieadd)
+   app.get('/admin/add_movie', movie.movieadd)
       .post(urlencodedparser, movie.insert);
 
     app.get('/admin-panel/login', function(req,res){

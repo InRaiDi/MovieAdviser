@@ -1,7 +1,7 @@
 
 const adminPage = function(req, res){
     
-    res.render('partials/admin-panel', {title:'Admin Panel', userLogged: req.user});
+    res.render('admin-panel/index', {title:'Admin Panel', userLogged: req.user});
 
 }
 
