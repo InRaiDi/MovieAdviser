@@ -18,7 +18,7 @@ module.exports = function (app) {
    app.get('/admin/add_movie', movie.movieadd)
       .post(urlencodedparser, movie.insert);
 
-    app.get('/admin-panel/login', function(req,res){
+    app.get('/admin/login', function(req,res){
         res.render('admin-panel/login', {title:'Log In'});
        });
 }
