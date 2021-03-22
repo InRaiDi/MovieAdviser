@@ -125,7 +125,7 @@ exports.updt = function (req, res) {
                 await newMovie.save();
               } 
             }
-            res.redirect("/list");
+            res.redirect("/admin/list");
           }
         }
       }).catch(err => res.send(err));;
@@ -156,7 +156,7 @@ exports.updt = function (req, res) {
                 await newUpcomingMovie.save();
               } 
             }
-            res.redirect("/list");
+            res.redirect("/admin/list");
           }
         } 
       }).catch(err => res.send(err));;
@@ -187,7 +187,7 @@ exports.updt = function (req, res) {
                 await newToprateMovie.save();
               } 
             }
-            res.redirect("/list");
+            res.redirect("/admin/list");
           }
         } 
       }).catch(err => res.send(err));;
