@@ -4,7 +4,7 @@ const bcrypt = require('bcrypt');
 const User = require('mongoose').model('User');
 
 module.exports = function(passport) {
-    passport.use(
+    passport.use('user',
         new LocalStrategy({usernameField : 'email'},(email,password,done)=> {
                 //match user
                 User.findOne({email : email})
@@ -28,6 +28,9 @@ module.exports = function(passport) {
         })
         
     )
+
+    
+
     passport.serializeUser(function(user, done) {
         done(null, user.id);
       });
