@@ -28,7 +28,7 @@ const findall = function (req, res) {
       let data = {};
       data.movies = retobj;
      
-      res.render("advance-search", {title:'Movie List', data: data, userLogged: req.user });
+      res.render("advance-search", {title:'Movie List', data: data, userLogged: req.user, movieTitle: req.body.title });
     });
   }
 
