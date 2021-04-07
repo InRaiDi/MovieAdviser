@@ -27,13 +27,16 @@
   </div>
   <!--Advance Search-->
   <div class="container text-center">
-      
  
 	<div id="search">
 		<form id="search-form" action="" method="POST" enctype="multipart/form-data">
     
 			<div class="form-group col-12">
-				<input class="form-control" type="text" placeholder="Search" value="<%= movieTitle %>" />
+        <% if(typeof movieTitle === 'undefined') { %>
+				<input class="form-control" type="text" placeholder="Search" value="" />
+        <% } else { %>
+          <input class="form-control" type="text" placeholder="Search" value="<%= movieTitle %>" />
+        <% } %>
 			</div>
 			<center><div class="form-group col-5 ">
 				<button type="submit" class="btn btn-block btn-danger">Search</button>
@@ -51,10 +54,10 @@
             <div class="form-group col-sm-4 col-xs-6">
 				<select data-filter="language" class="filter-make filter form-control">
 					<option value="">Select Language</option>
-					<option value="English">English</option>
-                    <option value="Russian">Russian</option>
-                    <option value="Hindi">Hindi</option>
-                    <option value="Spanish">Spanish</option>
+					<option value="en">English</option>
+                    <option value="ru">Russian</option>
+                    <option value="hi">Hindi</option>
+                    <option value="es">Spanish</option>
 
 				</select>
 			</div>
@@ -107,11 +110,6 @@
           </div>
         </div>
         <% }) %>
-        
-       
-
-    
-
       </div>
     </div>
       </section>
