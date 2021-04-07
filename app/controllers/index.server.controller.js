@@ -21,6 +21,17 @@ const contactUsPage = function(req, res){
     res.render('contact-us', {title:'Contact Us', userLogged: req.user});
 }
 
+const findall = function (req, res) {
+    const title = {$regex: ".*/" + req.body.title + "/i.*"};
+    console.log("Title: " + title.$regex);
+    Movies.find({title: {$regex: ".*" + req.body.title + ".*"}}, function (err, retobj) {
+      let data = {};
+      data.movies = retobj;
+     
+      res.render("advance-search", {title:'Movie List', data: data, userLogged: req.user });
+    });
+  }
+
 const ourTeamPage = function(req, res){
     res.render('our-team', {title:'Our Team Page', userLogged: req.user});
 }
@@ -43,4 +54,4 @@ const toprateMovies = function(req,res){
 }
 module.exports = {"upcomingMovies":upcomingMovies,"render": render,
                     "displayInfo": displayInfo, "contactUsPage": contactUsPage,
-                     "ourTeamPage":ourTeamPage, "privacyPolicy":privacyPolicy, "toprateMovies": toprateMovies }
+                     "ourTeamPage":ourTeamPage, "privacyPolicy":privacyPolicy, "toprateMovies": toprateMovies, "findall": findall }

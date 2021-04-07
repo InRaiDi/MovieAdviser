@@ -20,6 +20,8 @@ module.exports = function (app) {
    app.get('/upcoming-movies', index.upcomingMovies);
    app.get('/toprated-movies',index.toprateMovies);
 
+   app.post('/search_movies', index.findall);
+
    app.get('/movie-details', function(req,res){
     res.render('movie-details', {title:'Movie Details', userLogged: req.user});
    });
