@@ -24,7 +24,7 @@ const contactUsPage = function(req, res){
 const findall = function (req, res) {
     const title = {$regex: ".*/" + req.body.title + "/i.*"};
     console.log("Title: " + title.$regex);
-    Movies.find({title: {$regex: ".*" + req.body.title + ".*"}}, function (err, retobj) {
+    Movies.find({title: {$regex: req.body.title, $options: '-i'}}, function (err, retobj) {
       let data = {};
       data.movies = retobj;
      
