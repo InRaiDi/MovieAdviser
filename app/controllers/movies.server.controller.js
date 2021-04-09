@@ -199,9 +199,16 @@ exports.updt = function (req, res) {
     }
   }
 
-  exports.rateMovie = function (req, res ) {
-    ///BLABLABLA
-    //note from Dinara: I'm sending radio button values of 1,2,3,4,5 from the field "stars" via POST
-    ////
+  exports.rateMovie = async function (req, res ) {
+    let movie=await Movies.findOne({id:req.body.movie_id})
+    movie.total_rating=movie.total_rating+parseInt(req.body.stars) 
+    movie.rate_count=movie.rate_count+1
+    await movie.save()
+    res.redirect('/movie-details')
+  }
+  
+  exports.getMovieRating = async function (req, res ) {
+    let movie=await Movies.findOne({id:req.params.movie_id})
+    res.send(movie)
   }
   

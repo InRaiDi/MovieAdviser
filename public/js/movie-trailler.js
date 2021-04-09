@@ -1,11 +1,19 @@
- window.onload = function () {
+window.onload = function () {
   const movieDetails = document.querySelector("#movieDetails");
   const xhr2 = new XMLHttpRequest();
   let movieId = sessionStorage.getItem("movieId");
   const movieInfo = `https://api.themoviedb.org/3/movie/${movieId}?api_key=6a879a78d6083b8f3ba308233e0de85b&language=en-US`;
-  xhr2.open("GET", movieInfo);
-  xhr2.send();
-  xhr2.addEventListener("load", getMovieInfo);
+  
+  var ratingInfo;
+  fetch(`/movie_rating/${movieId}`)
+  .then(response => response.json())
+  .then(data =>{
+    ratingInfo=data
+    xhr2.open("GET", movieInfo);
+    xhr2.send();
+    xhr2.addEventListener("load", getMovieInfo);
+  });
+  
   const trailer = document.querySelector("#trailer");
   const movieTitle = document.getElementById("movieTitle");
   const xhr3= new XMLHttpRequest();
@@ -33,9 +41,10 @@
           <li><strong>Movie description:</strong> ${getMoviesA.overview}</li>
         <li><strong>Release Date:</strong> ${getMoviesA.release_date}</li>
 					<li><strong>Runtime:</strong> ${getMoviesA.runtime} (min)</li>
-					<li><strong>Rating:</strong> ${getMoviesA.vote_average} / 10 <span id="smallText">(${getMoviesA.vote_count} votes)</span></li>
+					<li><strong>Rating:</strong> ${(ratingInfo.total_rating/ratingInfo.rate_count).toFixed(2)} / 5 <span id="smallText">(${ratingInfo.rate_count} votes)</span></li>
           
           <form class="rating text-center" action="/rate_movie" method="POST">
+          <input type="hidden" name="movie_id" value="${movieId}">
           <label>
             <input type="radio" name="stars" value="1" />
             <span class="icon">★</span>

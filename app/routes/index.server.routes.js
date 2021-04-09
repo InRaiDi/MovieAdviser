@@ -60,4 +60,6 @@ module.exports = function (app) {
    //for rating a movie
    app.post('/rate_movie',movie.rateMovie)
 
+   app.get('/movie_rating/:movie_id', movie.getMovieRating)
+
 };

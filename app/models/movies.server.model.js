@@ -36,6 +36,14 @@ const MovieSchema = new Schema({
     },
     movieType:{
         type:String
+    },
+    total_rating:{
+        type:Number,
+        default:0
+    },
+    rate_count:{
+        type:Number,
+        default:0
     }
 })
 
