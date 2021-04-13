@@ -21,7 +21,8 @@ module.exports = function (app) {
    app.get('/toprated-movies', index.toprateMovies);
    app.get('/recommended', index.recommendedMovies);
 
-   app.post('/search_movies', index.findall);
+   //app.post('/search_movies', index.findall);
+   app.post('/search_movies', index.findAllAdvanced);
 
    app.get('/movie-details', function(req,res){
     res.render('movie-details', {title:'Movie Details', userLogged: req.user});

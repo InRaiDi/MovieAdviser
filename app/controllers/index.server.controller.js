@@ -22,15 +22,51 @@ const contactUsPage = function(req, res){
 }
 
 const findall = function (req, res) {
-    const title = {$regex: ".*/" + req.body.title + "/i.*"};
-    console.log("Title: " + title.$regex);
-    Movies.find({title: {$regex: req.body.title, $options: '-i'}}, function (err, retobj) {
-      let data = {};
-      data.movies = retobj;
+    if(req.body.title){
+        const title = {$regex: ".*/" + req.body.title + "/i.*"};
+        console.log("Title: " + title.$regex);
+        Movies.find({title: {$regex: req.body.title, $options: '-i'}}, function (err, retobj) {
+        let data = {};
+        data.movies = retobj;
      
-      res.render("advance-search", {title:'Movie List', data: data, userLogged: req.user, movieTitle: req.body.title });
-    });
-  }
+        res.render("advance-search", {title:'Movie List', data: data, userLogged: req.user, movieTitle: req.body.title });
+        });
+    }
+}
+
+const findAllAdvanced = function (req, res) {
+    console.log("Language: " + req.body.language + "- Year: " + req.body.year + "- Title: " + req.body.movieTitle);
+    let data = {};
+        if(req.body.movieTitle || req.body.year || req.body.language || req.body.movieRating){
+            Movies.find({
+                title: {$regex: req.body.movieTitle, $options: '-i'}, 
+                language: {$regex: req.body.language, $options: '-i'},
+                releaseDate: {$regex: req.body.year, $options: '-i'},
+                voteAverage: {$gte: req.body.movieRating}
+            }, function (err, retobj){
+                data.movies = retobj;
+                console.log(data.movies);
+                if(data.movies){
+                    res.render("advance-search", {title: 'Movie List', data: data, userLogged: req.user, 
+                    movieTitle: req.body.movieTitle, language: req.body.language, year: req.body.year, movieRating: req.body.movieRating});
+                } else {
+                    Movies.find({title: {$regex: req.body.movieTitle, $options: '-i'}},function(err, retobj){
+                        data.movies = retobj;
+                        res.render("advance-search", {title: 'Movie List', data: data, userLogged: req.user, movieTitle: req.body.movieTitle});
+                    });
+                }
+                
+            });
+    } else if(req.body.movieTitle){
+        Movies.find({ title: {$regex: req.body.movieTitle, $options: '-i'}},function(err, retobj){
+            data.movies = retobj;
+            res.render("advance-search", {title: 'Movie List', data: data, userLogged: req.user, movieTitle: req.body.movieTitle});
+        });
+    }
+        
+
+    
+}
 
 const ourTeamPage = function(req, res){
     res.render('our-team', {title:'Our Team Page', userLogged: req.user});
@@ -61,4 +97,4 @@ const toprateMovies = function(req,res){
 }
 module.exports = {"upcomingMovies":upcomingMovies,"render": render,"recommendedMovies": recommendedMovies, "render": render,
                     "displayInfo": displayInfo, "contactUsPage": contactUsPage,
-                     "ourTeamPage":ourTeamPage, "privacyPolicy":privacyPolicy, "toprateMovies": toprateMovies, "findall": findall }
+                     "ourTeamPage":ourTeamPage, "privacyPolicy":privacyPolicy, "toprateMovies": toprateMovies, "findall": findall, "findAllAdvanced": findAllAdvanced }

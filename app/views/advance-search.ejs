@@ -29,57 +29,117 @@
   <div class="container text-center">
  
 	<div id="search">
-		<form id="search-form" action="" method="POST" enctype="multipart/form-data">
+		<form id="search-form" action="/search_movies" method="POST">
     
 			<div class="form-group col-12">
         <% if(typeof movieTitle === 'undefined') { %>
-				<input class="form-control" type="text" placeholder="Search" value="" />
+				<input class="form-control" type="text" autocomplete="off" name="movieTitle" id="movieTitle" placeholder="Search" value="" />
         <% } else { %>
-          <input class="form-control" type="text" placeholder="Search" value="<%= movieTitle %>" />
+        <input class="form-control" type="text" autocomplete="off"  name="movieTitle" id="movieTitle" placeholder="Search" value="<%= movieTitle %>" />
         <% } %>
-			</div>
-			<center><div class="form-group col-5 ">
-				<button type="submit" class="btn btn-block btn-danger">Search</button>
-			</div>
-        </center>
-		</form>
    
 	</div>
     
 	<div class="" id="filter">
-		<form>
-			
-			
         <div class="row">
             <div class="form-group col-sm-4 col-xs-6">
-				<select data-filter="language" class="filter-make filter form-control">
-					<option value="">Select Language</option>
-					<option value="en">English</option>
-                    <option value="ru">Russian</option>
-                    <option value="hi">Hindi</option>
-                    <option value="es">Spanish</option>
-
+				<select data-filter="language" name="language" id="language" class="filter-make filter form-control">
+          <% if(typeof language === 'undefined' || language === "") { %>
+              
+            <option value="">Select Language</option>
+            <option value="en">English</option>
+            <option value="ru">Russian</option>
+            <option value="hi">Hindi</option>
+            <option value="es">Spanish</option>
+          
+        <% } else if (language === "en") { %> 
+            <option value="">Select Language</option>
+            <option value="en" selected="selected">English</option>
+            <option value="ru">Russian</option>
+            <option value="hi">Hindi</option>
+            <option value="es">Spanish</option>
+        <% } else if (language === "ru") { %> 
+            <option value="">Select Language</option>
+            <option value="en">English</option>
+            <option value="ru" selected="selected">Russian</option>
+            <option value="hi">Hindi</option>
+            <option value="es">Spanish</option>
+        <% } else if (language === "hi") { %> 
+            <option value="">Select Language</option>
+            <option value="en">English</option>
+            <option value="ru">Russian</option>
+            <option value="hi" selected="selected">Hindi</option>
+            <option value="es">Spanish</option>
+        <% } else if (language === "es") { %> 
+            <option value="">Select Language</option>
+            <option value="en">English</option>
+            <option value="ru">Russian</option>
+            <option value="hi">Hindi</option>
+            <option value="es" selected="selected">Spanish</option>
+        <% } %>
 				</select>
 			</div>
 			<div class="form-group col-sm-4 col-xs-6">
-				<select data-filter="type" class="filter-type filter form-control">
-					<option value="">Select Year</option>
-					<option value="2021">2021</option>
+				<select data-filter="type" name="year" id="year" class="filter-type filter form-control">
+					<% if(typeof year === 'undefined' || year === "") { %>
+            <option value="">Select Year</option>
+            <option value="2021">2021</option>
+            <option value="2020">2020</option>
+            <option value="2019">2019</option>
+            <option value="2018">2018</option>
+            <option value="2017">2017</option>
+            <% } else if (year === "2021") { %> 
+            <option value="">Select Year</option>
+            <option value="2021" selected="selected">2021</option>
+            <option value="2020">2020</option>
+            <option value="2019">2019</option>
+            <option value="2018">2018</option>
+            <option value="2017">2017</option>
+            <% } else if (year === "2020") { %> 
+              <option value="">Select Year</option>
+              <option value="2021" >2021</option>
+              <option value="2020" selected="selected">2020</option>
+              <option value="2019">2019</option>
+              <option value="2018">2018</option>
+              <option value="2017">2017</option>
+              <% } else if (year === "2019") { %> 
+                <option value="">Select Year</option>
+                <option value="2021">2021</option>
+                <option value="2020">2020</option>
+                <option value="2019" selected="selected">2019</option>
+                <option value="2018">2018</option>
+                <option value="2017">2017</option>
+                <% } else if (year === "2018") { %> 
+                  <option value="">Select Year</option>
+                  <option value="2021" >2021</option>
+                  <option value="2020">2020</option>
+                  <option value="2019">2019</option>
+                  <option value="2018" selected="selected">2018</option>
+                  <option value="2017">2017</option>
+                  <% } else if (year === "2017") { %> 
+                    <option value="">Select Year</option>
+                    <option value="2021" >2021</option>
                     <option value="2020">2020</option>
                     <option value="2019">2019</option>
                     <option value="2018">2018</option>
-                    <option value="2017">2017</option>
-
+                    <option value="2017" selected="selected">2017</option>
+                  <% } %>
 				</select>
 			</div>
           
 			<div class="form-group col-sm-4 col-xs-6">
-                <label>Rating: 0</label>
-				<input type="range" id="movieRating" name="points" min="0" max="10" step="0.1">
-                <label>10</label>
-			</div>
-            
-        </div>
+          <label>Rating: 0</label>
+          <% if(typeof movieRating === 'undefined' || movieRating === "") { %>
+				<input type="range" id="movieRating" name="movieRating" min="0" max="10" step="0.1">
+        <% } else { %>
+          <input type="range" id="movieRating" name="movieRating" min="0" max="10" step="0.1" value="<%= movieRating %>">
+        <%} %>
+            <label>10</label>
+      </div>
+        <center><div class="form-group col-5 ">
+          <button type="submit" class="btn btn-block btn-danger">Search</button>
+      </div>
+        </center>
 		</form>
 	</div>
 </div>
