@@ -27,6 +27,8 @@ window.onload = function () {
       let getMoviesA = response2;
       let output = "";
       movieTitle.innerHTML = `${getMoviesA.original_title}`;
+      let movie_genre = [];
+      getMoviesA.genres.forEach(element => movie_genre.push(element.name));
       output += `
       
 	
@@ -37,7 +39,7 @@ window.onload = function () {
           <hr>
       <div class="desc_info_block">
           <li><strong>Movie original language:</strong> ${getMoviesA.original_language}</li>
-
+          <li><strong>Movie Genre:</strong> ${movie_genre}</li>
           <li><strong>Movie description:</strong> ${getMoviesA.overview}</li>
         <li><strong>Release Date:</strong> ${getMoviesA.release_date}</li>
 					<li><strong>Runtime:</strong> ${getMoviesA.runtime} (min)</li>
@@ -86,7 +88,6 @@ window.onload = function () {
       movieDetails.innerHTML = output;
     }
 }
-
 
 function getMovieTrailer() {
   if (xhr3.readyState == 4) {
