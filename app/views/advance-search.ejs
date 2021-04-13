@@ -51,6 +51,7 @@
             <option value="ru">Russian</option>
             <option value="hi">Hindi</option>
             <option value="es">Spanish</option>
+            <option value="ja">Japanese</option>
           
         <% } else if (language === "en") { %> 
             <option value="">Select Language</option>
@@ -58,25 +59,38 @@
             <option value="ru">Russian</option>
             <option value="hi">Hindi</option>
             <option value="es">Spanish</option>
+            <option value="ja">Japanese</option>
         <% } else if (language === "ru") { %> 
             <option value="">Select Language</option>
             <option value="en">English</option>
             <option value="ru" selected="selected">Russian</option>
             <option value="hi">Hindi</option>
             <option value="es">Spanish</option>
+            <option value="ja">Japanese</option>
         <% } else if (language === "hi") { %> 
             <option value="">Select Language</option>
             <option value="en">English</option>
             <option value="ru">Russian</option>
             <option value="hi" selected="selected">Hindi</option>
             <option value="es">Spanish</option>
+            <option value="ja">Japanese</option>
         <% } else if (language === "es") { %> 
             <option value="">Select Language</option>
             <option value="en">English</option>
             <option value="ru">Russian</option>
             <option value="hi">Hindi</option>
             <option value="es" selected="selected">Spanish</option>
-        <% } %>
+            <option value="ja">Japanese</option>
+
+        <% } else if (language==="ja" ) { %>
+          <option value="">Select Language</option>
+          <option value="en">English</option>
+          <option value="ru">Russian</option>
+          <option value="hi">Hindi</option>
+          <option value="es">Spanish</option>
+          <option value="ja" selected="selected">Japanese</option>
+          <% } %>
+
 				</select>
 			</div>
 			<div class="form-group col-sm-4 col-xs-6">
@@ -137,7 +151,7 @@
             <label>10</label>
       </div>
         <center><div class="form-group col-5 ">
-          <button type="submit" class="btn btn-block btn-danger">Search</button>
+          <button type="submit" class="btn btn-danger">Search</button>
       </div>
         </center>
 		</form>
@@ -174,6 +188,7 @@
     </div>
       </section>
 </div>
+
 
 <script src="js/movie.js"></script>
 <%- include('partials/footer.ejs'); %>
