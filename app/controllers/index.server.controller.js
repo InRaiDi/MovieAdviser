@@ -45,6 +45,13 @@ const upcomingMovies = function(req, res){
     res.render('upcoming', {title:'Upcoming Movies', userLogged: req.user, data:ret});
     });
 }
+const recommendedMovies = function(req, res){
+    Movies.find({}, function (err, retobj) {
+        let ret = {};
+        ret.movies = retobj;
+    res.render('recommended', {title:'Recommended Movies', userLogged: req.user, data:ret});
+    });
+}
 const toprateMovies = function(req,res){
     Movies.find({}, function (err, retobj){
         let ret ={};
@@ -52,6 +59,6 @@ const toprateMovies = function(req,res){
     res.render('toprate', {title:'Top Rate Movies', userLogged: req.user, data:ret});
     });
 }
-module.exports = {"upcomingMovies":upcomingMovies,"render": render,
+module.exports = {"upcomingMovies":upcomingMovies,"render": render,"recommendedMovies": recommendedMovies, "render": render,
                     "displayInfo": displayInfo, "contactUsPage": contactUsPage,
                      "ourTeamPage":ourTeamPage, "privacyPolicy":privacyPolicy, "toprateMovies": toprateMovies, "findall": findall }

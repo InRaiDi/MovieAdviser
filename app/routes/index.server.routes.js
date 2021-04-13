@@ -18,7 +18,8 @@ module.exports = function (app) {
    app.get('/our-team', index.ourTeamPage);
    app.get('/advance-search', search.searchPage);
    app.get('/upcoming-movies', index.upcomingMovies);
-   app.get('/toprated-movies',index.toprateMovies);
+   app.get('/toprated-movies', index.toprateMovies);
+   app.get('/recommended', index.recommendedMovies);
 
    app.post('/search_movies', index.findall);
 
