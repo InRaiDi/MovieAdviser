@@ -128,6 +128,7 @@ exports.updt = function (req, res) {
                 const newMovie=new Movies({ 
                   id:obj.id,
                   title:obj.original_title,
+                  genre:obj.genre_ids,
                   overview:obj.overview,
                   releaseDate:obj.release_date,
                   voteAverage:obj.vote_average,
@@ -159,6 +160,7 @@ exports.updt = function (req, res) {
                 const newUpcomingMovie=new UpcomingMovies({ 
                   id:obj.id,
                   title:obj.original_title,
+                  genre:obj.genre_ids,
                   overview:obj.overview,
                   releaseDate:obj.release_date,
                   voteAverage:obj.vote_average,
@@ -190,6 +192,7 @@ exports.updt = function (req, res) {
                 const newToprateMovie=new TopRateMovies({ 
                   id:obj.id,
                   title:obj.original_title,
+                  genre:obj.genre_ids,
                   overview:obj.overview,
                   releaseDate:obj.release_date,
                   voteAverage:obj.vote_average,
@@ -221,6 +224,7 @@ exports.updt = function (req, res) {
                 const newMovie=new Movies({ 
                   id:obj.id,
                   title:obj.original_title,
+                  genre:obj.genre_ids,
                   overview:obj.overview,
                   releaseDate:obj.release_date,
                   voteAverage:obj.vote_average,

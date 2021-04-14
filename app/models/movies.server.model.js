@@ -13,7 +13,7 @@ const MovieSchema = new Schema({
         unique: true
     },
     genre:{
-        type: [String],
+        type: [Number],
         required: true
     },
     overview:{

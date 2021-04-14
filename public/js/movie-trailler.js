@@ -21,14 +21,25 @@ window.onload = function () {
   xhr3.open("GET", movieTrailer);
   xhr3.send();
   xhr3.addEventListener("load", getMovieTrailer);
+
   function getMovieInfo() {
     if (xhr2.readyState == 4) {
       const response2 = JSON.parse(xhr2.responseText);
       let getMoviesA = response2;
+      // window.genreID = getMoviesA.genres[0].id;
+      sessionStorage.setItem("movieGenre", getMoviesA.genres[0].id);
+      console.log(sessionStorage.getItem("movieGenre"));
       let output = "";
       movieTitle.innerHTML = `${getMoviesA.original_title}`;
       let movie_genre = [];
       getMoviesA.genres.forEach(element => movie_genre.push(element.name));
+      if (ratingInfo.rate_count==0){
+        finalMovieRating=0;
+        }
+        else{
+          finalMovieRating= (ratingInfo.total_rating/ratingInfo.rate_count).toFixed(2);
+       }
+
       output += `
       
 	
@@ -43,7 +54,7 @@ window.onload = function () {
           <li><strong>Movie description:</strong> ${getMoviesA.overview}</li>
         <li><strong>Release Date:</strong> ${getMoviesA.release_date}</li>
 					<li><strong>Runtime:</strong> ${getMoviesA.runtime} (min)</li>
-					<li><strong>Rating:</strong> ${(ratingInfo.total_rating/ratingInfo.rate_count).toFixed(2)} / 5 <span id="smallText">(${ratingInfo.rate_count} votes)</span></li>
+					<li><strong>Rating:</strong> ${finalMovieRating} / 5 <span id="smallText">(${ratingInfo.rate_count} votes)</span></li>
           
           <form class="rating text-center" action="/rate_movie" method="POST">
           <input type="hidden" name="movie_id" value="${movieId}">
