@@ -8,6 +8,5 @@ authorization.requireAdmin = async (req, res, next) => {
       if(username == admin){
         next();
       }
-      res.redirect("/homepage")
     }
   
