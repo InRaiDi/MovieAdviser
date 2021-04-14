@@ -7,4 +7,4 @@
 #### Geerthan
 #### Arielle
 #### Nikita
-#### DInesh aka the guy who didn't do anything yet
+#### Dinesh
