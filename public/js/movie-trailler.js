@@ -25,6 +25,9 @@ window.onload = function () {
     if (xhr2.readyState == 4) {
       const response2 = JSON.parse(xhr2.responseText);
       let getMoviesA = response2;
+      // window.genreID = getMoviesA.genres[0].id;
+      sessionStorage.setItem("movieGenre", getMoviesA.genres[0].id);
+      console.log(sessionStorage.getItem("movieGenre"));
       let output = "";
       movieTitle.innerHTML = `${getMoviesA.original_title}`;
       let movie_genre = [];
