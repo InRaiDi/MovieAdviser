@@ -7,5 +7,4 @@
 #### Geerthan
 #### Arielle
 #### Nikita
-#### Dinesh Balakrishnan
 #### Troung Hai Tran
